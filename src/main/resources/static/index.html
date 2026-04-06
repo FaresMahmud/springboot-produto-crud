@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: block;
+            margin: 10px 0;
+            padding: 12px;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .novo {
+            background-color: #28a745;
+        }
+
+        .lista {
+            background-color: #007bff;
+        }
+
+        a:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Página do Farinho</h1>
+
+    <a class="novo" href="/produto/formulario">+ Novo Produto</a>
+    <a class="lista" href="/produto/listar">📋 Lista de Produtos</a>
+</div>
+</body>
+</html>

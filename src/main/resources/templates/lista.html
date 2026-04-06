@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Produtos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        img {
+            border-radius: 5px;
+        }
+
+        .acoes a {
+            margin: 0 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .editar {
+            color: #28a745;
+        }
+
+        .excluir {
+            color: #dc3545;
+        }
+
+        .novo {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .novo:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            text-align: center;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <h1>Lista de Produtos</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Valor</th>
+            <th>Quantidade</th>
+            <th>Imagem</th>
+            <th>Ações</th>
+        </tr>
+
+        <tr th:each="p : ${produtos}">
+            <td th:text="${p.id}"></td>
+            <td th:text="${p.nome}"></td>
+            <td th:text="${p.descricao}"></td>
+            <td th:text="${p.valor}"></td>
+            <td th:text="${p.quantidade}"></td>
+            <td>
+                <img th:src="${p.imagem}" style="width:80px">
+            </td>
+            <td class="acoes">
+                <a class="editar" th:href="@{/produto/editar/{id}(id=${p.id})}">Editar</a>
+                <a class="excluir" th:href="@{/produto/deletar/{id}(id=${p.id})}">Excluir</a>
+            </td>
+        </tr>
+    </table>
+
+    <p>Salvo com sucesso!</p>
+
+    <a class="novo" href="/produto/formulario">+ Novo Produto</a>
+</div>
+</body>
+</html>
