@@ -9,7 +9,7 @@ import lombok.Data;
 public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(nullable = false, unique = true, length = 100)
     private String nome;
     private String descricao;
@@ -28,7 +28,7 @@ public class Produto {
         this.categoria = categoria;
     }
 
-    public Produto(Categoria categoria, String imagem, int quantidade, int valor, String descricao, String nome, int id) {
+    public Produto(Categoria categoria, String imagem, int quantidade, int valor, String descricao, String nome, Integer id) {
         this.categoria = categoria;
         this.imagem = imagem;
         this.quantidade = quantidade;
@@ -87,15 +87,15 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public Produto(int id, String nome, String descricao, int valor, int quantidade, String imagem) {
+    public Produto(Integer id, String nome, String descricao, int valor, int quantidade, String imagem) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;

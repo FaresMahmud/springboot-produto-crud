@@ -2,7 +2,7 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Produto</title>
+    <title>Cadastro de Categoria</title>
 
     <style>
         body {
@@ -30,8 +30,7 @@
             font-weight: bold;
         }
 
-        input,
-        select {
+        input {
             width: 100%;
             padding: 8px;
             margin-top: 5px;
@@ -60,46 +59,18 @@
             border: none;
             cursor: pointer;
         }
-
-        input[type="submit"]:hover {
-            background-color: #218838;
-        }
-
-        input[type="reset"]:hover {
-            background-color: #c82333;
-        }
     </style>
 </head>
 
 <body>
 <div class="container">
-    <h2>Cadastro de Produto</h2>
+    <h2>Cadastro de Categoria</h2>
 
-    <form method="POST" th:action="@{/produto/salvar}" th:object="${produto}">
+    <form method="POST" th:action="@{/categoria/salvar}" th:object="${categoria}">
         <input th:field="*{id}" type="hidden" />
 
         <label>Nome</label>
         <input type="text" th:field="*{nome}">
-
-        <label>Descricao</label>
-        <input type="text" th:field="*{descricao}">
-
-        <label>Valor</label>
-        <input type="number" th:field="*{valor}">
-
-        <label>Quantidade</label>
-        <input type="number" th:field="*{quantidade}">
-
-        <label>Imagem</label>
-        <input type="text" th:field="*{imagem}">
-
-        <label>Categoria</label>
-        <select th:field="*{categoria.id}">
-            <option value="">Selecione uma categoria</option>
-            <option th:each="categoria : ${categorias}"
-                    th:value="${categoria.id}"
-                    th:text="${categoria.nome}"></option>
-        </select>
 
         <div class="botoes">
             <input type="submit" value="Enviar">

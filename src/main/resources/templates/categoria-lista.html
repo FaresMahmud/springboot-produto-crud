@@ -2,7 +2,7 @@
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Produtos</title>
+    <title>Lista de Categorias</title>
 
     <style>
         body {
@@ -39,14 +39,6 @@
             border-bottom: 1px solid #ddd;
         }
 
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        img {
-            border-radius: 5px;
-        }
-
         .acoes a {
             margin: 0 5px;
             text-decoration: none;
@@ -63,7 +55,7 @@
 
         .novo {
             display: block;
-            width: 200px;
+            width: 220px;
             margin: 20px auto;
             text-align: center;
             padding: 10px;
@@ -72,48 +64,32 @@
             border-radius: 5px;
             text-decoration: none;
         }
-
-        .novo:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 
 <body>
 <div class="container">
-    <h1>Lista de Produtos</h1>
+    <h1>Lista de Categorias</h1>
 
     <table>
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Descricao</th>
-            <th>Valor</th>
-            <th>Quantidade</th>
-            <th>Imagem</th>
-            <th>Categoria</th>
             <th>Acoes</th>
         </tr>
 
-        <tr th:each="p : ${produtos}">
-            <td th:text="${p.id}"></td>
-            <td th:text="${p.nome}"></td>
-            <td th:text="${p.descricao}"></td>
-            <td th:text="${p.valor}"></td>
-            <td th:text="${p.quantidade}"></td>
-            <td>
-                <img th:src="${p.imagem}" style="width:80px">
-            </td>
-            <td th:text="${p.categoria != null ? p.categoria.nome : 'Sem categoria'}"></td>
+        <tr th:each="categoria : ${categorias}">
+            <td th:text="${categoria.id}"></td>
+            <td th:text="${categoria.nome}"></td>
             <td class="acoes">
-                <a class="editar" th:href="@{/produto/editar/{id}(id=${p.id})}">Editar</a>
-                <a class="excluir" th:href="@{/produto/deletar/{id}(id=${p.id})}">Excluir</a>
+                <a class="editar" th:href="@{/categoria/editar/{id}(id=${categoria.id})}">Editar</a>
+                <a class="excluir" th:href="@{/categoria/deletar/{id}(id=${categoria.id})}">Excluir</a>
             </td>
         </tr>
     </table>
 
-    <a class="novo" href="/produto/formulario">+ Novo Produto</a>
-    <a class="novo" href="/categoria/listar">Categorias</a>
+    <a class="novo" href="/categoria/formulario">+ Nova Categoria</a>
+    <a class="novo" href="/produto/listar">Produtos</a>
 </div>
 </body>
 </html>
