@@ -1,50 +1,74 @@
-# Spring Boot Produto CRUD
+# 🛒 Spring Boot Produto CRUD
 
-Aplicacao web em Spring Boot para gerenciamento de produtos e categorias, com interface server-side em Thymeleaf e persistencia em MySQL.
+Aplicação web completa para **gerenciamento de produtos e categorias**, desenvolvida com Spring Boot, Thymeleaf e MySQL.
 
-## O que o projeto faz
+---
 
-- CRUD completo de `Produto`
-- CRUD completo de `Categoria`
-- Relacao `ManyToOne` entre produto e categoria
-- Selecao de categoria no formulario de produto
-- Exibicao da categoria na listagem de produtos
-- Carga automatica das categorias padrao `Action Figure` e `Outros` na inicializacao
-- Pagina inicial com atalhos para navegar no sistema
-- Rota adicional `/jogo`
+## 📸 Funcionalidades
 
-## Tecnologias
+- ✅ CRUD completo de **Produtos**
+- ✅ CRUD completo de **Categorias**
+- ✅ Relacionamento `ManyToOne` entre produto e categoria
+- ✅ Seleção de categoria no formulário de produto
+- ✅ Carga automática de categorias padrão na inicialização
+- ✅ Interface web com Thymeleaf (server-side rendering)
+- ✅ Página inicial com navegação entre seções
 
-- Java 17
-- Spring Boot 4
-- Spring MVC
-- Spring Data JPA
-- Thymeleaf
-- MySQL
-- Maven
-- Lombok
+---
 
-## Estrutura
+## 🛠️ Tecnologias utilizadas
 
-- `controller`: controla as rotas web de produtos, categorias e a rota `/jogo`
-- `service`: aplica validacoes e regras de negocio
-- `repository`: acesso ao banco com JPA
-- `model`: entidades `Produto` e `Categoria`
-- `templates`: telas HTML com Thymeleaf
-- `config`: carga inicial de categorias
+| Tecnologia | Versão |
+|---|---|
+| Java | 17 |
+| Spring Boot | 3.x |
+| Spring MVC | — |
+| Spring Data JPA | — |
+| Thymeleaf | — |
+| MySQL | 8+ |
+| Maven | — |
+| Lombok | — |
 
-## Requisitos
+---
 
-- Java 17
-- Maven Wrapper do projeto
-- MySQL em execucao
+## 📁 Estrutura do projeto
 
-## Configuracao
+```
+src/
+├── controller/     → Rotas web (produtos, categorias)
+├── service/        → Regras de negócio e validações
+├── repository/     → Acesso ao banco via JPA
+├── model/          → Entidades Produto e Categoria
+├── config/         → Carga inicial de dados
+└── templates/      → Telas HTML com Thymeleaf
+```
 
-1. Configure o banco em `src/main/resources/application.properties`.
-2. Se preferir, use `src/main/resources/application.example.properties` como base.
+---
 
-Exemplo:
+## ⚙️ Como executar
+
+### Pré-requisitos
+
+- Java 17+
+- MySQL rodando localmente
+- Maven (ou use o wrapper do projeto)
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/FaresMahmud/springboot-produto-crud.git
+cd springboot-produto-crud
+```
+
+### 2. Configure o banco de dados
+
+Copie o arquivo de exemplo e edite com suas credenciais:
+
+```bash
+cp src/main/resources/application.example.properties src/main/resources/application.properties
+```
+
+Edite `application.properties`:
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/seu_banco
@@ -56,50 +80,54 @@ spring.thymeleaf.cache=false
 server.port=8080
 ```
 
-## Como executar
+### 3. Execute a aplicação
 
-No Windows:
-
-```powershell
+**Windows:**
+```bash
 .\mvnw.cmd spring-boot:run
 ```
 
-Em Linux/macOS:
-
+**Linux/macOS:**
 ```bash
 ./mvnw spring-boot:run
 ```
 
-## Como testar
+### 4. Acesse no navegador
 
-```powershell
-.\mvnw.cmd test
+```
+http://localhost:8080/
 ```
 
-## Rotas principais
+---
 
-- `GET /`
-- `GET /produto/formulario`
-- `POST /produto/salvar`
-- `GET /produto/listar`
-- `GET /produto/editar/{id}`
-- `GET /produto/deletar/{id}`
-- `GET /categoria/formulario`
-- `POST /categoria/salvar`
-- `GET /categoria/listar`
-- `GET /categoria/editar/{id}`
-- `GET /categoria/deletar/{id}`
-- `GET /jogo`
+## 🗺️ Rotas disponíveis
 
-## Acessos uteis
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/` | Página inicial |
+| GET | `/produto/listar` | Lista todos os produtos |
+| GET | `/produto/formulario` | Formulário de novo produto |
+| POST | `/produto/salvar` | Salva produto |
+| GET | `/produto/editar/{id}` | Edita produto |
+| GET | `/produto/deletar/{id}` | Remove produto |
+| GET | `/categoria/listar` | Lista categorias |
+| GET | `/categoria/formulario` | Formulário de nova categoria |
+| POST | `/categoria/salvar` | Salva categoria |
+| GET | `/categoria/editar/{id}` | Edita categoria |
+| GET | `/categoria/deletar/{id}` | Remove categoria |
 
-- `http://localhost:8080/`
-- `http://localhost:8080/produto/listar`
-- `http://localhost:8080/produto/formulario`
-- `http://localhost:8080/categoria/listar`
-- `http://localhost:8080/categoria/formulario`
+---
 
-## Observacoes
+## 📝 Observações
 
-- Ao iniciar a aplicacao, as categorias `Action Figure` e `Outros` sao inseridas automaticamente se ainda nao existirem.
-- O projeto usa `spring.jpa.hibernate.ddl-auto=update`, entao o schema pode ser atualizado automaticamente conforme as entidades.
+- As categorias **Action Figure** e **Outros** são criadas automaticamente na primeira execução
+- O schema do banco é atualizado automaticamente via `ddl-auto=update`
+
+---
+
+## 👨‍💻 Autor
+
+**Fares Mahmud** — Estudante de Sistemas de Informação
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fares-mahmud-412693376)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/FaresMahmud)
